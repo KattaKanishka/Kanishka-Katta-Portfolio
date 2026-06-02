@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kanishka Katta - AI Data Engineer & QA Automation Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e27;--bg2:#0f1529;--bg3:#141e35;--blue:#3b82f6;--blue-lt:#60a5fa;--purple:#a78bfa;--pink:#ec4899;--text:#e8f0fe;--text2:#a0aec0;--text3:#64748b;--accent:#818cf8;--border:rgba(255,255,255,0.05);--border2:rgba(59,130,246,0.25);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:linear-gradient(135deg,#0a0e27 0%,#0f1529 50%,#141e35 100%);color:var(--text);font-family:Inter,sans-serif;overflow-x:hidden;background-attachment:fixed}
+
+/* ANIMATED BG */
+#bg-animation{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);background:rgba(10,14,39,0.9)}
+.nav{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-size:20px;font-weight:800;background:linear-gradient(135deg,var(--blue-lt),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.5px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:13px;font-weight:600;transition:all 0.3s;position:relative;padding:8px 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--blue-lt),var(--purple));transition:width 0.3s}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--blue-lt)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 2rem 60px;position:relative;z-index:1;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(59,130,246,0.1) 0%,transparent 50%),radial-gradient(circle at 70% 50%,rgba(167,139,250,0.1) 0%,transparent 50%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-name{font-size:clamp(52px,6vw,80px);font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:16px;background:linear-gradient(135deg,#e8f0fe 0%,#a78bfa 50%,#ec4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:fadeInUp 0.8s ease}
+.hero-role{font-size:20px;color:var(--blue-lt);font-weight:700;margin-bottom:20px;display:inline-block;background:rgba(59,130,246,0.1);border:1px solid var(--border2);padding:8px 16px;border-radius:100px;animation:fadeInUp 0.8s ease 0.1s both}
+.hero-desc{font-size:16px;color:var(--text2);line-height:2;margin-bottom:40px;max-width:700px;animation:fadeInUp 0.8s ease 0.2s both}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;animation:fadeInUp 0.8s ease 0.3s both}
+.btn{padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.1),transparent 70%);transform:translateX(-100%);transition:transform 0.3s}
+.btn:hover::before{transform:translateX(100%)}
+.btn-p{background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;box-shadow:0 8px 32px rgba(59,130,246,0.4)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 48px rgba(59,130,246,0.6)}
+.btn-o{background:transparent;border:2px solid var(--border2);color:var(--text)}
+.btn-o:hover{border-color:var(--blue-lt);background:rgba(59,130,246,0.1)}
+
+@keyframes fadeInUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+section{padding:120px 2rem;position:relative;z-index:1;overflow:hidden}
+section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:200%;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);pointer-events:none}
+.container{max-width:1400px;margin:0 auto}
+.sec-label{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--blue);font-weight:700;margin-bottom:12px}
+.sec-title{font-size:clamp(36px,4vw,56px);font-weight:900;letter-spacing:-1px;margin-bottom:16px;background:linear-gradient(135deg,#e8f0fe,var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-desc{color:var(--text2);font-size:16px;max-width:700px;line-height:1.9;margin-bottom:60px}
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* AWARDS SECTION */
+#awards{background:linear-gradient(135deg,rgba(59,130,246,0.05) 0%,rgba(167,139,250,0.05) 100%)}
+.awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;margin-bottom:60px}
+.award-card{background:linear-gradient(135deg,var(--bg3) 0%,rgba(59,130,246,0.1) 100%);border:1px solid var(--border2);border-radius:16px;padding:32px;transition:all 0.3s;position:relative;overflow:hidden}
+.award-card::before{content:'';position:absolute;top:-50%;right:-50%;width:300px;height:300px;background:radial-gradient(circle,rgba(167,139,250,0.3) 0%,transparent 70%);transition:all 0.3s}
+.award-card:hover::before{top:-30%;right:-30%}
+.award-card:hover{transform:translateY(-8px);border-color:var(--purple);box-shadow:0 20px 60px rgba(167,139,250,0.2)}
+.award-icon{font-size:56px;margin-bottom:16px;animation:float 3s ease-in-out infinite}
+.award-card h3{font-size:18px;font-weight:800;margin-bottom:8px;color:var(--text);position:relative;z-index:1}
+.award-card p{font-size:14px;color:var(--text2);line-height:1.8;position:relative;z-index:1}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+/* ACHIEVEMENTS */
+#achievements{background:var(--bg2)}
+.achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.achievement-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:28px;transition:all 0.3s;position:relative}
+.achievement-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 16px 40px rgba(59,130,246,0.15)}
+.achievement-num{font-size:42px;font-weight:900;background:linear-gradient(135deg,var(--blue-lt),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.achievement-card h3{font-size:16px;font-weight:800;margin-bottom:8px;color:var(--text)}
+.achievement-card p{font-size:13px;color:var(--text2);line-height:1.8}
+
+/* EDUCATION */
+#education{background:var(--bg)}
+.edu-card{background:linear-gradient(135deg,var(--bg3),rgba(59,130,246,0.1));border:1px solid var(--border2);border-radius:16px;padding:36px;margin-bottom:28px;transition:all 0.3s}
+.edu-card:hover{transform:translateX(8px);box-shadow:0 20px 50px rgba(59,130,246,0.15)}
+.edu-icon{font-size:48px;margin-bottom:16px}
+.edu-degree{font-size:20px;font-weight:800;margin-bottom:8px;color:var(--blue-lt)}
+.edu-college{font-size:16px;font-weight:600;margin-bottom:4px;color:var(--text)}
+.edu-date{font-size:13px;color:var(--text3);margin-bottom:16px}
+.edu-details{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:16px}
+.edu-detail{background:rgba(59,130,246,0.05);border-left:3px solid var(--blue);padding:12px 16px;border-radius:6px;font-size:13px;color:var(--text2)}
+
+/* HIGHLIGHTS */
+#highlights{background:var(--bg2)}
+.highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.hl-card{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:28px;transition:all 0.3s;position:relative;overflow:hidden}
+.hl-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--purple));transform:translateX(-100%);transition:transform 0.3s}
+.hl-card:hover::after{transform:translateX(0)}
+.hl-card:hover{transform:translateY(-6px);border-color:var(--border2)}
+.hl-num{font-size:40px;font-weight:900;background:linear-gradient(135deg,var(--blue-lt),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.hl-card h3{font-size:15px;font-weight:800;margin-bottom:8px;color:var(--text)}
+.hl-card p{font-size:13px;color:var(--text2);line-height:1.7}
+
+/* SKILLS */
+#skills{background:var(--bg)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.skill-box{background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all 0.3s}
+.skill-box:hover{border-color:var(--border2);transform:translateY(-4px)}
+.skill-title{font-weight:800;font-size:15px;color:var(--blue-lt);margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--border2)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:rgba(59,130,246,0.1);border:1px solid var(--border2);color:var(--text2);padding:6px 12px;border-radius:100px;font-size:12px;transition:all 0.2s;cursor:pointer}
+.tag:hover{border-color:var(--blue-lt);background:rgba(59,130,246,0.15);color:var(--blue-lt);transform:scale(1.05)}
+
+/* EXPERIENCE */
+#experience{background:var(--bg2)}
+.exp-item{background:var(--bg3);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:28px;transition:all 0.3s}
+.exp-item:hover{border-color:var(--border2);box-shadow:0 20px 50px rgba(59,130,246,0.1)}
+.exp-header{background:linear-gradient(135deg,rgba(59,130,246,0.15) 0%,rgba(167,139,250,0.15) 100%);padding:28px;border-bottom:1px solid var(--border)}
+.exp-title{font-size:18px;font-weight:800;color:var(--blue-lt);margin-bottom:10px}
+.exp-meta{display:flex;gap:20px;font-size:13px;color:var(--text2);flex-wrap:wrap}
+.exp-body{padding:28px}
+.exp-desc{font-size:14px;color:var(--text2);line-height:1.9;margin-bottom:16px}
+.exp-bullet{font-size:13px;color:var(--text2);margin-bottom:12px;padding-left:20px;position:relative}
+.exp-bullet::before{content:'▸';position:absolute;left:0;color:var(--blue-lt);font-weight:800}
+.exp-tools{font-size:12px;color:var(--text3);margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+
+/* CERTIFICATIONS */
+#certs{background:var(--bg)}
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.cert-card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;transition:all 0.3s;cursor:pointer}
+.cert-card:hover{border-color:var(--blue-lt);transform:scale(1.05);box-shadow:0 12px 32px rgba(59,130,246,0.2)}
+.cert-badge{font-size:32px;margin-bottom:10px;animation:float 3s ease-in-out infinite}
+.cert-name{font-size:13px;font-weight:700;color:var(--text)}
+
+/* CONTACT */
+#contact{background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 50%,var(--bg) 100%)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.form-group{margin-bottom:20px}
+.form-group label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue-lt);margin-bottom:8px;display:block}
+.form-group input,.form-group textarea{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:12px;border-radius:8px;font-family:inherit;font-size:14px;width:100%;transition:all 0.2s}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--blue-lt);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
+.form-group textarea{resize:vertical;min-height:120px}
+.submit-btn{background:linear-gradient(135deg,var(--blue),var(--blue-lt));color:#fff;padding:14px;border:none;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;width:100%;transition:all 0.3s;box-shadow:0 8px 24px rgba(59,130,246,0.3)}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(59,130,246,0.4)}
+.contact-info h3{font-size:18px;font-weight:800;margin-bottom:20px;color:var(--text)}
+.contact-item{background:var(--bg3);border:1px solid var(--border);padding:14px;border-radius:8px;margin-bottom:12px;font-size:14px;color:var(--text2);transition:all 0.2s}
+.contact-item:hover{border-color:var(--blue-lt);background:rgba(59,130,246,0.05)}
+
+/* CHATBOT */
+.chatbot{position:fixed;bottom:24px;right:24px;z-index:300;font-family:Inter,sans-serif}
+.chat-btn{width:60px;height:60px;background:linear-gradient(135deg,var(--blue),var(--purple));border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;transition:all 0.3s;box-shadow:0 8px 32px rgba(59,130,246,0.4);animation:pulse 2s ease-in-out infinite}
+.chat-btn:hover{transform:scale(1.1);box-shadow:0 12px 48px rgba(59,130,246,0.6)}
+@keyframes pulse{0%,100%{box-shadow:0 8px 32px rgba(59,130,246,0.4)}50%{box-shadow:0 8px 48px rgba(59,130,246,0.8)}}
+.chat-panel{position:absolute;bottom:90px;right:0;width:360px;background:var(--bg3);border:1px solid var(--border2);border-radius:16px;box-shadow:0 25px 60px rgba(0,0,0,0.5);display:none;flex-direction:column;max-height:500px;overflow:hidden;animation:slideUp 0.3s ease}
+.chat-panel.open{display:flex}
+@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.chat-header{background:linear-gradient(135deg,var(--blue),var(--purple));padding:16px;font-weight:700;font-size:14px;color:#fff;display:flex;justify-content:space-between;align-items:center}
+.chat-close{background:none;border:none;color:#fff;cursor:pointer;font-size:20px}
+.chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(180deg,var(--bg3),var(--bg2))}
+.chat-msg{background:var(--bg2);border:1px solid var(--border);padding:10px 14px;border-radius:10px;font-size:12px;color:var(--text2);line-height:1.6;max-width:85%;word-wrap:break-word;animation:fadeInUp 0.3s ease}
+.chat-msg.user{background:var(--blue);color:#fff;margin-left:auto;border:none}
+.chat-input{display:flex;gap:8px;padding:14px;border-top:1px solid var(--border);background:var(--bg2)}
+.chat-input input{flex:1;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:8px;border-radius:6px;font-size:12px;font-family:inherit}
+.chat-input input:focus{outline:none;border-color:var(--blue-lt)}
+.chat-input button{background:var(--blue);color:#fff;border:none;border-radius:6px;padding:8px 12px;cursor:pointer;font-weight:700;font-size:11px;transition:all 0.2s}
+.chat-input button:hover{background:var(--blue-lt)}
+
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 2rem;text-align:center;color:var(--text3);font-size:13px}
+
+@media(max-width:1000px){.contact-wrap{grid-template-columns:1fr}.chat-panel{width:320px}}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--bg3);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+</style>
+</head>
+<body>
+
+<canvas id="bg-animation"></canvas>
+
+<nav>
+  <div class="nav">
+    <div class="logo">KK</div>
+    <ul class="nav-links">
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#highlights">Highlights</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-name">Kanishka Katta</h1>
+    <div class="hero-role">🚀 AI Data Engineer & QA AI Automation Specialist</div>
+    <p class="hero-desc">Building enterprise-scale healthcare data pipelines with machine learning integration. 20+ automated Azure Data Factory pipelines, Databricks expertise, 50% QA cycle reduction, and HIPAA-compliant systems processing 500GB–1TB of data. Award-winning engineer with proven track record of excellence.</p>
+    <div class="hero-cta">
+      <a href="#awards" class="btn btn-p">✨ View Awards</a>
+      <a href="#contact" class="btn btn-o">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="container">
+    <div class="sec-label reveal">Recognition</div>
+    <h2 class="sec-title reveal">🏆 Awards & Honors</h2>
+    <p class="sec-desc reveal">Recognized for excellence in innovation, technical leadership, and impact delivery in data engineering and automation.</p>
+    <div class="awards-grid">
+      <div class="award-card reveal">
+        <div class="award-icon">⭐</div>
+        <h3>Megastar Award</h3>
+        <p>Awarded twice for outstanding performance, innovation, and leadership excellence. Recognized among top performers for delivering transformative solutions across multiple enterprise healthcare projects.</p>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon">🤖</div>
+        <h3>AI Tech Week Star</h3>
+        <p>Honored as AI Tech Week Star for groundbreaking work in artificial intelligence, machine learning pipeline architecture, and AI-driven automation showcasing cutting-edge technical expertise.</p>
+      </div>
+      <div class="award-card reveal">
+        <div class="award-icon">💎</div>
+        <h3>Innovation Leader</h3>
+        <p>Recognized for pioneering Functionize AI implementation and machine learning-augmented QA automation reducing validation cycles by 50% with industry-leading methodologies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="sec-label reveal">Academic Background</div>
+    <h2 class="sec-title reveal">🎓 Education</h2>
+    <p class="sec-desc reveal">Strong foundation in computer science with first-class distinction and continuous learning through industry certifications.</p>
+    
+    <div class="edu-card reveal">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-degree">Bachelor of Technology (B.Tech)</div>
+      <div class="edu-college">Computer Science & Engineering</div>
+      <div class="edu-date">August 2018 – June 2022</div>
+      <div class="edu-college" style="font-weight:700;color:var(--blue-lt);margin-top:8px">Velagapudi Ramakrishna Siddhartha Engineering College (VRSEC)</div>
+      <div class="edu-details">
+        <div class="edu-detail">🏅 <strong>CGPA: 8.4 / 10</strong></div>
+        <div class="edu-detail">🎖️ <strong>First Class with Distinction</strong></div>
+        <div class="edu-detail">🌟 Ranking in Top 10% of Class</div>
+        <div class="edu-detail">📚 Consistent Academic Excellence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="container">
+    <div class="sec-label reveal">Impact Metrics</div>
+    <h2 class="sec-title reveal">⚡ Key Achievements</h2>
+    <p class="sec-desc reveal">Measurable impact across enterprise healthcare pipelines, QA automation, and data engineering initiatives.</p>
+    <div class="achievements-grid">
+      <div class="achievement-card reveal">
+        <div class="achievement-num">20+</div>
+        <h3>Automated Pipelines</h3>
+        <p>Azure Data Factory pipelines built with dbt transformations and enterprise-scale CI/CD orchestration</p>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-num">50%</div>
+        <h3>QA Cycle Reduction</h3>
+        <p>Achieved through Functionize AI self-healing automation and ML-augmented workflows</p>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-num">500GB+</div>
+        <h3>Healthcare Data</h3>
+        <p>Processed with 100% accuracy, HIPAA compliance, and full data governance</p>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-num">200+</div>
+        <h3>Defects Managed</h3>
+        <p>End-to-end lifecycle with root-cause analysis and high-fidelity documentation</p>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-num">99%+</div>
+        <h3>SLA Reliability</h3>
+        <p>Maintained across 20+ production pipelines with real-time monitoring</p>
+      </div>
+      <div class="achievement-card reveal">
+        <div class="achievement-num">9</div>
+        <h3>Cloud Certifications</h3>
+        <p>Azure, Google Cloud, and Databricks GenAI Engineer Associate credentials</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="highlights">
+  <div class="container">
+    <div class="sec-label reveal">Professional Highlights</div>
+    <h2 class="sec-title reveal">💡 Key Strengths</h2>
+    <div class="highlights-grid">
+      <div class="hl-card reveal">
+        <div class="hl-num">3.6+</div>
+        <h3>Years Enterprise Experience</h3>
+        <p>Healthcare domain expertise at Accenture delivering mission-critical data and QA solutions</p>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-num">10K+</div>
+        <h3>Users Impacted</h3>
+        <p>Large-scale healthcare insurance platform supporting 10,000+ members across multiple states</p>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-num">6</div>
+        <h3>Cloud Platforms</h3>
+        <p>Expertise across Azure, AWS, and Databricks with enterprise-grade implementation</p>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-num">100%</div>
+        <h3>Data Accuracy</h3>
+        <p>Maintained across multi-state CMS Medicare pipelines with ML-driven validation</p>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-num">∞</div>
+        <h3>HIPAA Compliant</h3>
+        <p>Full data governance, lineage tracking, FHIR integration, and regulatory adherence</p>
+      </div>
+      <div class="hl-card reveal">
+        <div class="hl-num">AI</div>
+        <h3>Future Ready</h3>
+        <p>GenAI pipeline architect with LLM evaluation and machine learning pipeline expertise</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="sec-label reveal">Technical Arsenal</div>
+    <h2 class="sec-title reveal">🛠️ Skills & Technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-box reveal">
+        <div class="skill-title">☁️ Cloud & Data</div>
+        <div class="skill-tags">
+          <span class="tag">Azure Data Factory</span><span class="tag">Databricks</span><span class="tag">Delta Lake</span>
+          <span class="tag">Synapse Analytics</span><span class="tag">PySpark</span><span class="tag">Apache Spark</span>
+        </div>
+      </div>
+      <div class="skill-box reveal">
+        <div class="skill-title">🤖 AI & ML</div>
+        <div class="skill-tags">
+          <span class="tag">GenAI Pipelines</span><span class="tag">LLM Evaluation</span><span class="tag">ML Integration</span>
+          <span class="tag">Functionize AI</span><span class="tag">Data Automation</span>
+        </div>
+      </div>
+      <div class="skill-box reveal">
+        <div class="skill-title">📊 Data Engineering</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">dbt</span><span class="tag">Data Governance</span>
+          <span class="tag">Data Lineage</span><span class="tag">FHIR Integration</span>
+        </div>
+      </div>
+      <div class="skill-box reveal">
+        <div class="skill-title">🧪 QA & Test Automation</div>
+        <div class="skill-tags">
+          <span class="tag">Functionize AI</span><span class="tag">Selenium</span><span class="tag">Postman</span>
+          <span class="tag">API Testing</span><span class="tag">Azure DevOps</span>
+        </div>
+      </div>
+      <div class="skill-box reveal">
+        <div class="skill-title">🏥 Healthcare Compliance</div>
+        <div class="skill-tags">
+          <span class="tag">HIPAA</span><span class="tag">FHIR Standards</span><span class="tag">Data Quality</span>
+          <span class="tag">Reconciliation</span><span class="tag">CMS Medicare</span>
+        </div>
+      </div>
+      <div class="skill-box reveal">
+        <div class="skill-title">⚙️ DevOps & Tools</div>
+        <div class="skill-tags">
+          <span class="tag">Azure DevOps</span><span class="tag">Git/GitHub</span><span class="tag">CI/CD</span>
+          <span class="tag">Informatica IIG</span><span class="tag">Swagger</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="sec-label reveal">Work History</div>
+    <h2 class="sec-title reveal">💼 Professional Experience</h2>
+    
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div class="exp-title">Senior QA AI Automation Specialist</div>
+        <div class="exp-meta">
+          <span>🏥 Independence Health Group (USA)</span>
+          <span>📅 Dec 2022 – Present</span>
+          <span>🏷️ Healthcare</span>
+        </div>
+      </div>
+      <div class="exp-body">
+        <p class="exp-desc">10,000+ member healthcare insurance portal requiring comprehensive QA including AI automation, API testing, database validation, and cross-browser compatibility.</p>
+        <div class="exp-bullet">50% QA cycle reduction via Functionize AI self-healing automation</div>
+        <div class="exp-bullet">Managed 200+ defects with root-cause analysis and documentation</div>
+        <div class="exp-bullet">100% design fidelity validation using Figma and Lighthouse</div>
+        <div class="exp-bullet">Cross-browser testing across 6 platforms via Sauce Labs</div>
+        <div class="exp-bullet">API validation using Postman & Swagger with database reconciliation</div>
+        <div class="exp-tools">Skills: Functionize AI, Selenium, Postman, Swagger, Azure DevOps, SQL, Git, API Testing</div>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div class="exp-title">AI Data Engineer</div>
+        <div class="exp-meta">
+          <span>🏥 AmeriHealth Medicare (CMS Fee Schedule)</span>
+          <span>📅 Jan 2023 – Sep 2023</span>
+          <span>🏷️ Healthcare</span>
+        </div>
+      </div>
+      <div class="exp-body">
+        <p class="exp-desc">Built automated cloud pipelines processing 500GB–1TB of CMS Medicare data using Medallion Architecture with full automation and ML-driven validation.</p>
+        <div class="exp-bullet">20+ Azure Data Factory pipelines with automated orchestration and dbt transformations</div>
+        <div class="exp-bullet">100% data accuracy with ML-driven quality assurance and reconciliation testing</div>
+        <div class="exp-bullet">CI/CD pipeline automation reducing manual verification by 40%</div>
+        <div class="exp-bullet">Full data governance, lineage tracking, and FHIR healthcare standards integration</div>
+        <div class="exp-bullet">99%+ SLA reliability with automated monitoring, alerting, and cost optimization</div>
+        <div class="exp-tools">Skills: Azure Data Factory, Databricks, Delta Lake, PySpark, dbt, Data Governance, FHIR, ML Pipeline</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs">
+  <div class="container">
+    <div class="sec-label reveal">Continuous Learning</div>
+    <h2 class="sec-title reveal">🎓 Certifications (9 Total)</h2>
+    <div class="cert-grid">
+      <div class="cert-card reveal"><div class="cert-badge">☁️</div><div class="cert-name">AZ-900 Fundamentals</div></div>
+      <div class="cert-card reveal"><div class="cert-badge">📊</div><div class="cert-name">PL-300 Data Analyst</div></div>
+      <div class="cert-card reveal"><div class="cert-badge">🤖</div><div class="cert-name">AI-900 AI Fundamentals</div></div>
+      <div class="cert-card reveal"><div class="cert-badge">🛠️</div><div class="cert-name">PL-900 Fundamentals</div></div>
+      <div class="cert-card reveal"><div class="cert-badge">⚙️</div><div class="cert-name">PL-400 Developer</div></div>
+      <div class="cert-card reveal"><div class="cert-badge">🌐</div><div class="cert-name">GCP Digital Leader</div></div>
+      <div class="cert-card reveal"><div class="cert-badge">✨</div><div class="cert-name">GCP GenAI Leader</div></div>
+      <div class="cert-card reveal"><div class="cert-badge">☁️</div><div class="cert-name">GCP Cloud Engineer</div></div>
+      <div class="cert-card reveal"><div class="cert-badge">🎓</div><div class="cert-name">Databricks GenAI</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="sec-label reveal">Let's Connect</div>
+    <h2 class="sec-title reveal">💬 Get In Touch</h2>
+    <div class="contact-wrap">
+      <form onsubmit="handleContact(event)">
+        <div class="form-group">
+          <label>Your Full Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label>Your Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label>Your Message</label>
+          <textarea id="message" placeholder="Tell me about your opportunity..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message 📨</button>
+      </form>
+      <div class="reveal">
+        <h3>Direct Contact</h3>
+        <div class="contact-item">📞 +91 9618478709</div>
+        <div class="contact-item">✉️ kanishkakrishna14@gmail.com</div>
+        <div class="contact-item">💼 linkedin.com/in/kattakanishka</div>
+        <div style="margin-top:32px;background:rgba(59,130,246,0.1);border:1px solid var(--border2);border-radius:12px;padding:20px">
+          <h4 style="font-size:14px;font-weight:800;margin-bottom:12px;color:var(--text)">🎯 Perfect Fit Roles</h4>
+          <p style="font-size:13px;color:var(--text2);line-height:2">
+            ✅ AI Data Engineer + QA<br>
+            ✅ Data Automation Testing<br>
+            ✅ Healthcare Data Quality<br>
+            ✅ Cloud Data Pipeline Automation<br>
+            ✅ Databricks + QA Integration
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Kanishka Katta | AI Data Engineer & QA AI Automation Specialist | Award-Winning Engineer</p>
+</footer>
+
+<!-- CHATBOT -->
+<div class="chatbot">
+  <button class="chat-btn" onclick="toggleChat()">?</button>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      🤖 Real-Time Agent
+      <button class="chat-close" onclick="toggleChat()">×</button>
+    </div>
+    <div class="chat-msgs" id="chatMsgs"></div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Ask me anything...">
+      <button onclick="sendChat()">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ANIMATIONS
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('vis');
+  });
+}, {threshold: 0.1});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// CHATBOT - Real-time recruiter Q&A
+const botKB = {
+  'experience': 'I have 3.6+ years at Accenture in healthcare domain: Senior QA AI Automation Specialist (Project B) and AI Data Engineer (Project A). Strong expertise in Azure, Databricks, QA automation.',
+  'skills': 'Core skills: Azure Data Factory, Databricks, Delta Lake, PySpark, Python, SQL, dbt, Functionize AI, Selenium, Postman, HIPAA/FHIR compliance, Data Governance.',
+  'awards': 'Awarded Megastar twice for outstanding performance and innovation. Honored as AI Tech Week Star for pioneering work in AI and ML-driven automation.',
+  'education': 'B.Tech Computer Science from VRSEC (2018-2022). CGPA: 8.4/10, First Class with Distinction.',
+  'pipelines': 'Built 20+ automated Azure Data Factory pipelines processing 500GB–1TB of healthcare data with Medallion Architecture, dbt transformations, and CI/CD automation.',
+  'qa': '50% QA cycle reduction using Functionize AI self-healing automation. Managed 200+ defects with root-cause analysis. API testing with Postman, Swagger.',
+  'certifications': '9 certifications: AZ-900, PL-300, AI-900, PL-900, PL-400, GCP Digital Leader, GCP GenAI Leader, GCP Cloud Engineer, Databricks GenAI Engineer.',
+  'healthcare': 'Expertise in HIPAA-compliant systems, FHIR integration, CMS Medicare pipelines. 10,000+ user healthcare insurance portal QA experience.',
+  'availability': 'Available for immediate opportunities. Open to remote and on-site roles in Data Engineering, QA Automation, and AI/ML integration.',
+  'salary': 'Open to competitive offers in range 25-35 LPA depending on role, company, and location. Flexible on negotiation.',
+  'location': 'Based in Bengaluru, India. Open to Pune, Bangalore, Hyderabad roles. Remote opportunities welcome.',
+  'interests': 'Passionate about AI/ML pipeline architecture, healthcare data systems, and pushing automation boundaries. Always eager to learn emerging technologies.',
+  'default': 'Great question! Feel free to ask about my experience, skills, awards, education, or anything else. I\'m here to help! 😊'
+};
+
+function toggleChat(){
+  document.getElementById('chatPanel').classList.toggle('open');
+  if(document.getElementById('chatPanel').classList.contains('open')){
+    document.getElementById('chatInput').focus();
+    if(document.getElementById('chatMsgs').innerHTML === ''){
+      addMsg('Hi! 👋 I\'m Kanishka\'s AI Agent. Ask me about experience, skills, awards, education, projects, or anything else!', false);
+    }
+  }
+}
+
+function addMsg(text, isUser){
+  const msgs = document.getElementById('chatMsgs');
+  const msg = document.createElement('div');
+  msg.className = `chat-msg ${isUser ? 'user' : ''}`;
+  msg.textContent = text;
+  msgs.appendChild(msg);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendChat(){
+  const input = document.getElementById('chatInput');
+  const userMsg = input.value.trim();
+  if(!userMsg) return;
+  
+  addMsg(userMsg, true);
+  input.value = '';
+  
+  const query = userMsg.toLowerCase();
+  let response = botKB.default;
+  
+  for(const [key, value] of Object.entries(botKB)){
+    if(query.includes(key)) {
+      response = value;
+      break;
+    }
+  }
+  
+  setTimeout(() => addMsg(response, false), 500);
+}
+
+document.getElementById('chatInput')?.addEventListener('keypress', e => {
+  if(e.key === 'Enter') sendChat();
+});
+
+function handleContact(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const msg = document.getElementById('message').value;
+  const subject = `Opportunity for Kanishka - from ${name}`;
+  const body = encodeURIComponent(`From: ${email}\n\n${msg}`);
+  window.location.href = `mailto:kanishkakrishna14@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+}
+</script>
+</body>
+</html>
